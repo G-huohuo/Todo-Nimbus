@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Todo Nimbus</title>
+    <!-- Tailwind (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- HTMX (CDN) -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" href="/static/app.css">
+  </head>
+  <body class="bg-slate-50 min-h-screen text-slate-800">
+    <main class="max-w-xl mx-auto p-4">
+      <div class="mt-12 bg-white rounded-2xl shadow p-6">
+        <h1 class="text-3xl font-bold mb-4">🌀 Todo Nimbus</h1>
+        {% block content %}{% endblock %}
+      </div>
+      <p class="text-center text-xs text-slate-400 mt-6">FastAPI · HTMX · SQLite</p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<div id="todo-list">
+  {% if todos|length == 0 %}
+    <div class="text-slate-400 text-sm">还没有待办，先添加一个吧 ~</div>
+  {% else %}
+    <ul class="space-y-2">
+      {% for t in todos %}
+        <li class="flex items-center gap-3 p-3 rounded-xl border">
+          <form hx-post="/toggle/{{ t.id }}" hx-target="#todo-list" hx-swap="outerHTML">
+            <input type="hidden" name="filter" value="{{ filter }}" />
+            <button class="w-5 h-5 rounded border flex items-center justify-center">
+              {% if t.completed %}
+                ✓
+              {% endif %}
+            </button>
+          </form>
+          <div class="flex-1 {{ 'line-through text-slate-400' if t.completed }}">{{ t.title }}</div>
+          <form hx-post="/delete/{{ t.id }}" hx-target="#todo-list" hx-swap="outerHTML">
+            <input type="hidden" name="filter" value="{{ filter }}" />
+            <button class="text-slate-400 hover:text-red-600">删除</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>

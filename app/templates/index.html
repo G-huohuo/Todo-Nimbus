@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <form class="flex gap-2 mb-4" hx-post="/add" hx-target="#todo-list" hx-swap="outerHTML">
+    <input type="hidden" name="filter" value="{{ filter }}" />
+    <input name="title" placeholder="添加一个待办..." class="flex-1 rounded-xl border p-3 focus:outline-none focus:ring" />
+    <button class="rounded-xl px-4 py-2 bg-indigo-600 text-white hover:bg-indigo-700">添加</button>
+  </form>
+
+  <div class="flex items-center gap-2 mb-3 text-sm">
+    <a href="/?filter=all" class="px-3 py-1 rounded-full {{ 'bg-indigo-600 text-white' if filter=='all' else 'bg-slate-100' }}">全部</a>
+    <a href="/?filter=active" class="px-3 py-1 rounded-full {{ 'bg-indigo-600 text-white' if filter=='active' else 'bg-slate-100' }}">未完成</a>
+    <a href="/?filter=completed" class="px-3 py-1 rounded-full {{ 'bg-indigo-600 text-white' if filter=='completed' else 'bg-slate-100' }}">已完成</a>
+  </div>
+
+  {% include "_todo_list.html" %}
+{% endblock %}
