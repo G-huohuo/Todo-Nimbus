@@ -1,10 +1,13 @@
-# Todo-Nimbus
-一个极简但好用的 To‑Do List 应用（FastAPI + HTMX + SQLite）
-## 功能特性
-- ✅ 新增待办、标记完成、删除待办
-- ✅ 过滤视图：全部 / 未完成 / 已完成
-- ✅ 内联交互：使用 HTMX 局部刷新，无需整页跳转
-- ✅ 数据持久化：SQLite（默认）
-- ✅ 后端：FastAPI（Python 3.10+）
-- ✅ 前端：Tailwind（CDN） + HTMX（CDN），无需构建工具
-- ✅ 生产部署：Dockerfile、docker-compose.yml 提供
+# Todo Nimbus
+
+一个使用 FastAPI + HTMX + SQLite 的待办清单应用。无需前端构建工具，部署简单，交互顺滑。
+
+## 功能
+- 新增/完成/删除待办
+- 过滤视图：全部/未完成/已完成
+- HTMX 局部刷新
+
+## 快速开始
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --host 0.0.0.0 --port 8000
